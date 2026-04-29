@@ -42,5 +42,14 @@ def calcula_pontos_sequencia_baixa(dados):
             unicos[i] + 2 == unicos[i + 2] and
             unicos[i] + 3 == unicos[i + 3]):
             return 15
-    
     return 0
+
+def calcula_pontos_full_house(dados):
+    contagem = {}
+    for valor in dados:
+        contagem[valor] = contagem.get(valor, 0) + 1
+    valores_contagem = sorted(contagem.values())
+    if valores_contagem == [2, 3]:
+        return sum(dados)
+    else:
+        return 0
