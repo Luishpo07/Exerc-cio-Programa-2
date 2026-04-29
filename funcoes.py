@@ -46,12 +46,11 @@ def calcula_pontos_sequencia_baixa(dados):
     return 0
 
 def calcula_pontos_full_house(dados):
-    contagem = {}
-    for valor in dados:
-        contagem[valor] = contagem.get(valor, 0) + 1
-    valores_contagem = sorted(contagem.values())
+    contagens = []
     
-    if valores_contagem == [2, 3]:
+    for valor in set(dados):
+        contagens.append(dados.count(valor))
+    
+    if sorted(contagens) == [2, 3]:
         return sum(dados)
-    else:
-        return 0
+    return 0
