@@ -44,3 +44,18 @@ def calcula_pontos_sequencia_baixa(dados):
             return 15
     
     return 0
+
+def calcula_pontos_sequencia_alta(dados):
+    dados_unicos = sorted(set(dados))  # remove duplicados e ordena
+    
+    contador = 1
+    
+    for i in range(1, len(dados_unicos)):
+        if dados_unicos[i] == dados_unicos[i-1] + 1:
+            contador += 1
+            if contador >= 5:
+                return 30
+        else:
+            contador = 1
+    
+    return 0
