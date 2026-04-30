@@ -62,14 +62,19 @@ def calcula_pontos_sequencia_alta(dados):
 def calcula_pontos_full_house(dados):
     contagem = {}
 
-   
     for num in dados:
         contagem[num] = contagem.get(num, 0) + 1
 
-    valores = list(contagem.values())
+    tem_tres = False
+    tem_dois = False
 
-    
-    if sorted(valores) == [2, 3]:
+    for qtd in contagem.values():
+        if qtd == 3:
+            tem_tres = True
+        elif qtd == 2:
+            tem_dois = True
+
+    if tem_tres and tem_dois:
         return sum(dados)
     
     return 0
