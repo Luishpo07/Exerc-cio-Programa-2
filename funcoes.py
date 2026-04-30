@@ -90,4 +90,4 @@ def calcula_pontos_quadra(lista_dados):
     if quadra == True:
         return soma_dados
     else:
-        return 
+        return 0
