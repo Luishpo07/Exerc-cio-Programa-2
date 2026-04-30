@@ -76,14 +76,18 @@ def calcula_pontos_full_house(lista_dados):
         return total
     return 0
 
-def calcula_pontos_quadra(dados):
-    contagem = {}
-
-    for num in dados:
-        contagem[num] = contagem.get(num, 0) + 1
-
-    for qtd in contagem.values():
-        if qtd >= 4:
-            return sum(dados)
-
-    return 0
+def calcula_pontos_quadra(lista_dados):
+    soma_dados = 0
+    quadra = False
+    for i in range(len(lista_dados)):
+        contagem = 0
+        for j in range(len(lista_dados)):
+            if lista_dados[i] == lista_dados[j]:
+                contagem += 1
+        soma_dados += lista_dados[i]
+        if contagem >= 4:
+            quadra = True
+    if quadra == True:
+        return soma_dados
+    else:
+        return 
