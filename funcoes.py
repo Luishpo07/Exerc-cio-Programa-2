@@ -45,6 +45,7 @@ def calcula_pontos_sequencia_baixa(dados):
     
     return 0
 
+<<<<<<< HEAD
 def calcula_pontos_sequencia_alta(dados):
     dados_unicos = sorted(set(dados))  
     contador = 1
@@ -59,22 +60,3 @@ def calcula_pontos_sequencia_alta(dados):
     
     return 0
 
-def calcula_pontos_full_house(dados):
-    contagem = {}
-
-    for num in dados:
-        contagem[num] = contagem.get(num, 0) + 1
-
-    tem_tres = False
-    tem_dois = False
-
-    for qtd in contagem.values():
-        if qtd == 3:
-            tem_tres = True
-        elif qtd == 2:
-            tem_dois = True
-
-    if tem_tres and tem_dois:
-        return sum(dados)
-    
-    return 0
