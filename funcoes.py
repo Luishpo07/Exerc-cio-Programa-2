@@ -46,8 +46,7 @@ def calcula_pontos_sequencia_baixa(dados):
     return 0
 
 def calcula_pontos_sequencia_alta(dados):
-    dados_unicos = sorted(set(dados))  # remove duplicados e ordena
-    
+    dados_unicos = sorted(set(dados))  
     contador = 1
     
     for i in range(1, len(dados_unicos)):
@@ -57,5 +56,20 @@ def calcula_pontos_sequencia_alta(dados):
                 return 30
         else:
             contador = 1
+    
+    return 0
+
+def calcula_pontos_full_house(dados):
+    contagem = {}
+
+   
+    for num in dados:
+        contagem[num] = contagem.get(num, 0) + 1
+
+    valores = list(contagem.values())
+
+    
+    if sorted(valores) == [2, 3]:
+        return sum(dados)
     
     return 0
