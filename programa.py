@@ -12,6 +12,8 @@ cartela = {
     }
 }
 
+imprime_cartela(cartela)
+
 def fim_de_jogo(cartela):
     for valor in cartela['regra_simples'].values():
         if valor == -1:
