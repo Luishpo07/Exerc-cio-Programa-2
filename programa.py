@@ -58,21 +58,23 @@ while not fim_de_jogo(cartela):
             imprime_cartela(cartela)
 
         elif opcao == "0":
-            print("Digite a combinação desejada:")
-            combinacao = input()
+            while True
+                print("Digite a combinação desejada:")
+                combinacao = input()
 
-            if combinacao in ["1","2","3","4","5","6"]:
-                chave = int(combinacao)
-                if cartela['regra_simples'][chave] != -1:
-                    print("Essa combinação já foi utilizada.")
-                    continue
-            elif combinacao in cartela['regra_avancada']:
-                if cartela['regra_avancada'][combinacao] != -1:
-                    print("Essa combinação já foi utilizada.")
-                    continue
-            else:
-                print("Combinação inválida. Tente novamente.")
-                continue
+                if combinacao in ["1","2","3","4","5","6"]:
+                    chave = int(combinacao)
+                    if cartela['regra_simples'][chave] != -1:
+                        print("Essa combinação já foi utilizada.")
+                    else:
+                        break
+                elif combinacao in cartela['regra_avancada']:
+                    if cartela['regra_avancada'][combinacao] != -1:
+                        print("Essa combinação já foi utilizada.")
+                    else:
+                        break
+                else:
+                    print("Combinação inválida. Tente novamente.")
 
             todos_dados = dados_rolados + dados_guardados
             cartela = faz_jogada(todos_dados, combinacao, cartela)
