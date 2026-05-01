@@ -58,7 +58,7 @@ while not fim_de_jogo(cartela):
             imprime_cartela(cartela)
 
         elif opcao == "0":
-            while True
+            while True:
                 print("Digite a combinação desejada:")
                 combinacao = input()
 
