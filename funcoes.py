@@ -111,13 +111,18 @@ def calcula_pontos_regra_avancada(dados):
     return resultado
 
 def faz_jogada(dados, categoria, cartela_de_pontos):
-    # Verifica se é regra simples (categorias "1" a "6")
     if categoria in ["1", "2", "3", "4", "5", "6"]:
         numero = int(categoria)
-        pontos = calcula_pontos_regra_simples(dados, numero)
-        cartela_de_pontos['regra_simples'][numero] = pontos
+        resultado = calcula_pontos_regra_simples(dados)
+        cartela_de_pontos['regra_simples'][numero] = resultado[numero]
     else:
-        pontos = calcula_pontos_regra_avancada(dados, categoria)
-        cartela_de_pontos['regra_avancada'][categoria] = pontos
+        resultado = calcula_pontos_regra_avancada(dados)
+
+        if categoria == "cinco_iguais":
+            cartela_de_pontos['regra_avancada'][categoria] = resultado["quina"]
+        elif categoria == "sem_combinacao":
+            cartela_de_pontos['regra_avancada'][categoria] = resultado["soma"]
+        else:
+            cartela_de_pontos['regra_avancada'][categoria] = resultado[categoria]
 
     return cartela_de_pontos
