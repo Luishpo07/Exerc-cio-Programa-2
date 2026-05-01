@@ -109,3 +109,15 @@ def calcula_pontos_regra_avancada(dados):
         "soma": calcula_pontos_soma(dados)
     }
     return resultado
+
+def faz_jogada(dados, categoria, cartela_de_pontos):
+    # Verifica se é regra simples (categorias "1" a "6")
+    if categoria in ["1", "2", "3", "4", "5", "6"]:
+        numero = int(categoria)
+        pontos = calcula_pontos_regra_simples(dados, numero)
+        cartela_de_pontos['regra_simples'][numero] = pontos
+    else:
+        pontos = calcula_pontos_regra_avancada(dados, categoria)
+        cartela_de_pontos['regra_avancada'][categoria] = pontos
+
+    return cartela_de_pontos
